@@ -1,0 +1,22 @@
+.todo-list-item a {
+  cursor:pointer;
+  text-decoration: none;
+}
+
+.todo-list-item.done a{
+  text-decoration: line-through;
+  color:#ddd;
+}
+
+
+.todo-list-item .check {
+ padding-right: 6px;
+}
+
+.todo-list-item .delete {
+  position: absolute;
+  top:14px;
+  right:10px;
+  margin: auto;
+  text-decoration: none;
+}

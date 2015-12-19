@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My awesome todo list</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/css/style.css" >
+</head>
+<body>
+  <div id="app">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">My Todo List</a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Summary-->
+        <div class="col-xs-3">
+          <h3>Summary</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <dl>
+                <dt>Todo:</dt>
+                <dd>20</dd>
+              </dl>
+              <dl>
+                <dt>Done:</dt>
+                <dd>20</dd>
+              </dl>
+              <dl>
+                <dt>World count:</dt>
+                <dd>20</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <!-- End Summary-->
+
+        <!-- Todo -->
+        <div class="col-xs-5">
+          <h3>Todo</h3>
+          <form class="form">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Text input"/>
+            </div>
+          </form>
+          <div class="list-group todo-list">
+            <li href="#" class="list-group-item todo-list-item done">
+              <a><span class="glyphicon glyphicon-ok  check"></span>Cras justo odio</a>
+              <a class="glyphicon glyphicon-remove-circle delete"></a>
+            </li>
+            <li href="#" class="list-group-item todo-list-item">
+              <a><span class="glyphicon glyphicon-unchecked check"></span>Cras ssjusto odio</a>
+              <a class="glyphicon glyphicon-remove-circle delete"></a>
+            </li>
+            <li href="#" class="list-group-item todo-list-item">
+              <a><span class="glyphicon glyphicon-unchecked check"></span>Cras ssjusto odio</a>
+              <a class="glyphicon glyphicon-remove-circle delete"></a>
+            </li>
+          </div>
+        </div>
+        <!-- End Todo -->
+
+
+        <!-- History -->
+        <div class="col-xs-4">
+          <h3>History</h3>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+            <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+            <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
+            <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+          </ul>
+        </div>
+        <!-- End History -->
+
+      </div>
+      <!-- End row -->
+    </div>
+    <!-- End container -->
+  </div>
+  <!-- End app -->
+</body>
+</html>
