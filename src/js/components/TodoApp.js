@@ -3,48 +3,35 @@ import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import HistoryList from './HistoryList'
 
+import AppDispatcher from '../dispatcher/AppDispatcher'
+import TodoStore from '../stores/TodoStore'
+
 class TodoApp extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       title: "Awesome Todo",
-      todos: [
-        {
-          id: 1,
-          text: "My Todo 1"
-        },
-        {
-          id: 2,
-          text: "My Todo 2"
-        }
-      ],
-      histories: []
+      todos: TodoStore.getTodos()
     }
   }
 
-  onSubmitTodo(text) {
-    let todo = {
-      id: Date.now(),
-      text: text
-    }
-
-    this.setState({
-      todos: [...this.state.todos, todo],
-      histories: [...this.state.histories, "add: " + text]
-    });
+  componentDidMount() {
+    this.todoStoreToken = TodoStore.addListener(
+      this.onStoreUpdate.bind(this)
+    )
   }
 
-  removeTodo(todo) {
-    let todos = this.state.todos.filter((_todo) => {
-      return todo.id !== _todo.id;
-    });
-
-    this.setState({
-      todos: todos,
-      histories: [...this.state.histories, "delete: " + todo.text]
-    });
+  componentWillUnmount() {
+    this.todoStoreToken.remove();
   }
+
+  onStoreUpdate() {
+    this.setState({
+      todos: TodoStore.getTodos()
+    })
+  }
+
 
   render() {
     return (
@@ -53,15 +40,13 @@ class TodoApp extends React.Component {
 
           { /* Todo List */}
           <div className="col-xs-4">
-            <TodoInput onSubmitTodo={ this.onSubmitTodo.bind(this) }  />
-            <TodoList
-              todos={ this.state.todos }
-              onClickTodoItem={this.removeTodo.bind(this)} />
+            <TodoInput />
+            <TodoList todos={ this.state.todos } />
           </div>
 
           { /* History List */}
           <div className="col-xs-4">
-            <HistoryList histories={this.state.histories} />
+            <HistoryList />
           </div>
 
         </div>
