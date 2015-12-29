@@ -1,4 +1,13 @@
 
+### Build
+
+```sh
+$ npm install
+$ webpack
+# open index.html
+```
+
+
 ### Project setup
 
 - Webpack
